@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebuy Partner Program - Benefits by Tier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/museo-sans" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6C4FFF;
+            --secondary: #00C9FF;
+            --gold: #FFD700;
+            --silver: #A8B4C0;
+            --bronze: #CD7F32;
+            --dark: #0F1419;
+            --gray: #6B7280;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Museo Sans', 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #0F1419 0%, #1a1f2e 50%, #0F1419 100%);
+            padding: 4rem 2rem;
+        }
+
+        .hero-logo {
+            font-family: 'Sofia Pro', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #6C4FFF 0%, #9D4FFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Benefits Teaser */
+        .teaser-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            padding: 4rem 0;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .teaser-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .teaser-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .teaser-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--white);
+        }
+
+        .teaser-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Section Headers */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, #6C4FFF 0%, #9D4FFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .category-title.enablement {
+            color: var(--primary);
+        }
+
+        .category-title.gtm {
+            color: var(--secondary);
+        }
+
+        /* Benefit Cards */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(108, 79, 255, 0.3);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .benefit-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .benefit-card .description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tier-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .tier-benefit {
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid;
+        }
+
+        .tier-benefit.gold {
+            background: rgba(108, 79, 255, 0.1);
+            border-color: var(--gold);
+        }
+
+        .tier-benefit.silver {
+            background: rgba(255,255,255,0.02);
+            border-color: var(--silver);
+        }
+
+        .tier-benefit.bronze {
+            background: rgba(255,255,255,0.02);
+            border-color: var(--bronze);
+        }
+
+        .tier-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-label.gold { color: var(--gold); }
+        .tier-label.silver { color: var(--silver); }
+        .tier-label.bronze { color: var(--bronze); }
+
+        .tier-value {
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+
+        /* Revenue Share Section */
+        .revenue-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .revenue-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .revenue-card.gold {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 215, 0, 0.02) 100%);
+        }
+
+        .revenue-card.silver {
+            border-color: var(--silver);
+            background: linear-gradient(135deg, rgba(168, 180, 192, 0.05) 0%, rgba(168, 180, 192, 0.02) 100%);
+        }
+
+        .revenue-card.bronze {
+            border-color: var(--bronze);
+            background: linear-gradient(135deg, rgba(205, 127, 50, 0.05) 0%, rgba(205, 127, 50, 0.02) 100%);
+        }
+
+        .revenue-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .revenue-card .tier-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .revenue-card.gold .tier-name { color: var(--gold); }
+        .revenue-card.silver .tier-name { color: var(--silver); }
+        .revenue-card.bronze .tier-name { color: var(--bronze); }
+
+        .revenue-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .revenue-label {
+            font-size: 1.15rem;
+            color: var(--white);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .revenue-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #6C4FFF 0%, #9D4FFF 100%);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-family: 'Museo Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--gray);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .revenue-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Table Cell Content Styling */
+        .tier-content {
+            text-align: center;
+            padding: 0.5rem 1.5rem;
+            line-height: 1.9;
+        }
+
+        .tier-content .benefit-item {
+            display: block;
+            padding: 0.6rem 0;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .tier-content .benefit-item:not(:last-child) {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 0.6rem;
+        }
+
+        /* Simple single-item cells */
+        .tier-content.simple {
+            padding: 1rem;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-logo">REBUY ENGINE</div>
+            <h1>Partner Program<br/>Designed for Growth</h1>
+            <p>Leverage Rebuy's AI-powered personalization platform to sell billable services, deliver measurable results, and grow your client revenue. Plus, earn revenue share on every referral and Rebuy customer you manage.</p>
+        </div>
+    </section>
+
+    <!-- Benefits Teaser -->
+    <section style="padding: 4rem 0; background: var(--dark);">
+        <div class="container">
+            <div class="teaser-grid">
+                <div class="teaser-card">
+                    <div class="icon">📈</div>
+                    <h3>Grow Client Revenue</h3>
+                    <p>Deliver AI-powered personalization services that boost AOV, LTV, and conversions</p>
+                </div>
+                <div class="teaser-card">
+                    <div class="icon">🎯</div>
+                    <h3>World-Class Support</h3>
+                    <p>Partner managers, priority technical support, and comprehensive enablement</p>
+                </div>
+                <div class="teaser-card">
+                    <div class="icon">🚀</div>
+                    <h3>Co-Marketing</h3>
+                    <p>MDF budgets, case studies, events, and joint pipeline development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier Overview -->
+    <section style="padding: 8rem 0; background: linear-gradient(180deg, #1a1f2e 0%, var(--dark) 100%);">
+        <div class="container">
+            <h2 class="section-title">Three Tiers. Unlimited Potential.</h2>
+            <p class="section-subtitle">Gold, Silver, and Bronze partnership tiers provide differentiated levels of support and co-marketing based on your engagement with Rebuy. All tiers are designed to help you deliver exceptional results for your clients.</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section style="padding: 8rem 0; background: var(--dark);">
+        <div class="container">
+            <h2 class="section-title">Everything You Need to Succeed</h2>
+            <p class="section-subtitle">Explore how we support your agency with enablement, co-marketing, and dedicated resources</p>
+
+            <!-- Tab Navigation -->
+            <div style="display: flex; justify-content: center; gap: 1rem; margin: 4rem 0 3rem;">
+                <button class="tab-btn active" data-tab="enablement" style="padding: 1rem 2.5rem; background: var(--primary); border: none; border-radius: 50px; color: var(--white); font-family: 'Museo Sans', sans-serif; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                    Enablement & Support
+                </button>
+                <button class="tab-btn" data-tab="gtm" style="padding: 1rem 2.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: var(--white); font-family: 'Museo Sans', sans-serif; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                    Joint Go-to-Market
+                </button>
+            </div>
+
+            <!-- Enablement & Support Table -->
+            <div class="tab-content active" id="enablement-content" style="max-width: 1400px; margin: 0 auto;">
+                <div style="background: rgba(255,255,255,0.03); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                    <!-- Table Header -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; background: rgba(255,255,255,0.05); border-bottom: 2px solid rgba(255,255,255,0.1);">
+                        <div style="font-weight: 700; font-size: 1.2rem; color: var(--white);">Resource</div>
+                        <div style="font-weight: 700; font-size: 1.2rem; color: var(--gold); text-align: center;">🌟 GOLD</div>
+                        <div style="font-weight: 700; font-size: 1.2rem; color: var(--silver); text-align: center;">⭐ SILVER</div>
+                        <div style="font-weight: 700; font-size: 1.2rem; color: var(--bronze); text-align: center;">✦ BRONZE</div>
+                    </div>
+
+                    <!-- Technical Support -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">🛠️ Technical Support</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Assistance with troubleshooting, implementation, and complex integrations</div>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Priority support</span>
+                            <span class="benefit-item">Senior team access</span>
+                            <span class="benefit-item">Full Solutions Engineering</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Chatbot support</span>
+                            <span class="benefit-item">Escalation options</span>
+                            <span class="benefit-item">Solutions Engineering on request</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Chatbot support</span>
+                            <span class="benefit-item">Solutions Engineering exceptions</span>
+                        </div>
+                    </div>
+
+                    <!-- Partner Manager -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">👥 Partner Manager</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Dedicated resource for strategic guidance and coordination</div>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Dedicated</span>
+                            <span class="benefit-item">Monthly meetings</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Dedicated</span>
+                            <span class="benefit-item">Quarterly meetings</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Performance-based</span>
+                            <span class="benefit-item">Annual check-ins</span>
+                        </div>
+                    </div>
+
+                    <!-- Communication Channels -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">💬 Communication Channels</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Multi-channel interaction with Rebuy teams</div>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Dedicated Slack</span>
+                            <span class="benefit-item">Email</span>
+                            <span class="benefit-item">Phone</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Dedicated Slack</span>
+                            <span class="benefit-item">Primarily email</span>
+                        </div>
+                        <div class="tier-content simple">
+                            Primarily email
+                        </div>
+                    </div>
+
+                    <!-- Training -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">📚 Training & Enablement</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Resources and sessions to build Rebuy expertise</div>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Dedicated sessions</span>
+                            <span class="benefit-item">Custom resources</span>
+                            <span class="benefit-item">Certification</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Dedicated sessions</span>
+                            <span class="benefit-item">Certification</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Self-service</span>
+                            <span class="benefit-item">Certification</span>
+                        </div>
+                    </div>
+
+                    <!-- Strategic MSM -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">🎯 Strategic Merchant Success Manager</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Guidance on client retention and expansion</div>
+                        </div>
+                        <div class="tier-content simple">Full access</div>
+                        <div class="tier-content simple">On request</div>
+                        <div class="tier-content simple">Exception basis</div>
+                    </div>
+
+                    <!-- Portfolio Health Reviews -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem;">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">📊 Portfolio Health Reviews</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Regular analysis of your client portfolio performance and optimization opportunities</div>
+                        </div>
+                        <div class="tier-content simple">Quarterly</div>
+                        <div class="tier-content simple">1-2x per year</div>
+                        <div class="tier-content simple">Ad-hoc</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Joint Go-to-Market Table -->
+            <div class="tab-content" id="gtm-content" style="max-width: 1400px; margin: 0 auto; display: none;">
+                <div style="background: rgba(255,255,255,0.03); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                    <!-- Table Header -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; background: rgba(255,255,255,0.05); border-bottom: 2px solid rgba(255,255,255,0.1);">
+                        <div style="font-weight: 700; font-size: 1.2rem; color: var(--white);">Activity</div>
+                        <div style="font-weight: 700; font-size: 1.2rem; color: var(--gold); text-align: center;">🌟 GOLD</div>
+                        <div style="font-weight: 700; font-size: 1.2rem; color: var(--silver); text-align: center;">⭐ SILVER</div>
+                        <div style="font-weight: 700; font-size: 1.2rem; color: var(--bronze); text-align: center;">✦ BRONZE</div>
+                    </div>
+
+                    <!-- Client Audits -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">🔍 Client Audits</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Rebuy-led audits and recommendations for client implementations</div>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Priority access</span>
+                            <span class="benefit-item">Custom audits</span>
+                        </div>
+                        <div class="tier-content simple">✓ Available</div>
+                        <div class="tier-content simple">As needed</div>
+                    </div>
+
+                    <!-- Case Studies -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">📄 Case Studies</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Co-created content showcasing joint value and client success</div>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">1-2 per year</span>
+                            <span class="benefit-item">Internal + External</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">1+ per year</span>
+                            <span class="benefit-item">Rebuy co-promotes</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Partner-led</span>
+                            <span class="benefit-item">Rebuy supports</span>
+                        </div>
+                    </div>
+
+                    <!-- MDF -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">💰 Co-Marketing Investment (MDF)</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Rebuy investment in joint marketing activities and events</div>
+                        </div>
+                        <div class="tier-content simple">Target 1/year</div>
+                        <div class="tier-content simple">Opportunistic</div>
+                        <div class="tier-content simple">Exception needed</div>
+                    </div>
+
+                    <!-- Events -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">🎪 Rebuy Events (Momentum Series)</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Priority access for sponsorship, speaking, and attendance</div>
+                        </div>
+                        <div class="tier-content simple">✓ First Priority</div>
+                        <div class="tier-content simple">✓ Second Priority</div>
+                        <div class="tier-content simple">Use case based</div>
+                    </div>
+
+                    <!-- Digital Content -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">📱 Digital Content</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Social media posts, webinars, playbooks, etc.</div>
+                        </div>
+                        <div class="tier-content simple">Multiple per year</div>
+                        <div class="tier-content simple">Selective use cases</div>
+                        <div class="tier-content simple">Performance/brand based</div>
+                    </div>
+
+                    <!-- Agency Recommendations -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">⭐ Agency Recommendations</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Shortlist for AEs, MSMs, Support team + Partner Directory</div>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Shortlist priority</span>
+                            <span class="benefit-item">Directory highlight</span>
+                            <span class="benefit-item">Rebuy Team Intros</span>
+                        </div>
+                        <div class="tier-content">
+                            <span class="benefit-item">Recommended list</span>
+                            <span class="benefit-item">Directory</span>
+                        </div>
+                        <div class="tier-content simple">Specific use cases</div>
+                    </div>
+
+                    <!-- Dedicated AE -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">🤝 Dedicated Account Executive</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Assigned AE for sales collaboration and deal support</div>
+                        </div>
+                        <div class="tier-content simple">✓ Option for key accounts</div>
+                        <div class="tier-content simple">✓ Option for key accounts</div>
+                        <div class="tier-content simple">Standard routing</div>
+                    </div>
+
+                    <!-- Account Mapping -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">🗺️ Account Mapping</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Identify overlapping customers and prospects</div>
+                        </div>
+                        <div class="tier-content simple">Regular sessions</div>
+                        <div class="tier-content simple">2-3x per year</div>
+                        <div class="tier-content simple">As needed</div>
+                    </div>
+
+                    <!-- Joint Prospecting -->
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem;">
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem;">🚀 Joint Prospecting</div>
+                            <div style="color: var(--gray); font-size: 0.95rem;">Coordinated "better together" outreach campaigns</div>
+                        </div>
+                        <div class="tier-content simple">✓ Encouraged</div>
+                        <div class="tier-content simple">Optional</div>
+                        <div class="tier-content simple">Case by case</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.style.background = 'rgba(255,255,255,0.05)';
+                    b.style.border = '1px solid rgba(255,255,255,0.1)';
+                });
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    content.style.display = 'none';
+                });
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                btn.style.background = 'var(--primary)';
+                btn.style.border = 'none';
+                
+                const targetContent = document.getElementById(`${targetTab}-content`);
+                targetContent.classList.add('active');
+                targetContent.style.display = 'block';
+            });
+        });
+    </script>
+
+    <!-- Revenue Share Section -->
+    <section style="padding: 8rem 0; background: linear-gradient(180deg, var(--dark) 0%, #1a1f2e 100%);">
+        <div class="container">
+            <h2 class="section-title">Revenue Share Program</h2>
+            <p class="section-subtitle">Earn competitive revenue share on installs you refer and manage—rewarding both new business and ongoing client relationships</p>
+            
+            <div class="revenue-cards">
+                <div class="revenue-card gold">
+                    <span class="icon">🌟</span>
+                    <h3 class="tier-name">GOLD</h3>
+                    <div class="revenue-item">
+                        <span class="revenue-label">First Year Revenue Share<br/><span style="font-size: 0.85rem; font-weight: 400; opacity: 0.8;">(Referral + Implementation / Managed)</span></span>
+                        <span class="revenue-value">20%</span>
+                    </div>
+                    <div class="revenue-item">
+                        <span class="revenue-label">Ongoing Managed Share</span>
+                        <span class="revenue-value">5%</span>
+                    </div>
+                </div>
+
+                <div class="revenue-card silver">
+                    <span class="icon">⭐</span>
+                    <h3 class="tier-name">SILVER</h3>
+                    <div class="revenue-item">
+                        <span class="revenue-label">First Year Revenue Share<br/><span style="font-size: 0.85rem; font-weight: 400; opacity: 0.8;">(Referral + Implementation / Managed)</span></span>
+                        <span class="revenue-value">15%</span>
+                    </div>
+                    <div class="revenue-item">
+                        <span class="revenue-label">Ongoing Managed Share</span>
+                        <span class="revenue-value">5%</span>
+                    </div>
+                </div>
+
+                <div class="revenue-card bronze">
+                    <span class="icon">✦</span>
+                    <h3 class="tier-name">BRONZE</h3>
+                    <div class="revenue-item">
+                        <span class="revenue-label">First Year Revenue Share<br/><span style="font-size: 0.85rem; font-weight: 400; opacity: 0.8;">(Referral + Implementation / Managed)</span></span>
+                        <span class="revenue-value">10%</span>
+                    </div>
+                    <div class="revenue-item">
+                        <span class="revenue-label">Ongoing Managed Share</span>
+                        <span class="revenue-value">5%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="max-width: 800px; margin: 3rem auto 0; text-align: center;">
+                <p style="color: var(--gray); font-size: 1rem; line-height: 1.8;">
+                    <strong style="color: var(--white);">Referral Revenue Share:</strong> Earn 5-15% for 12 months on new client installs you refer and support through the sales cycle.<br/><br/>
+                    <strong style="color: var(--white);">Managed Revenue Share:</strong> Earn ongoing 5% revenue share for as long as you actively manage Rebuy for a client, regardless of who referred them.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Build Your Partner Plan -->
+    <section style="padding: 8rem 0; background: var(--dark);">
+        <div class="container">
+            <h2 class="section-title">Build Your Partner Plan</h2>
+            <p class="section-subtitle">Select your top priorities and we'll connect you with your partner manager to create a customized success plan</p>
+
+            <!-- Trigger Button -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <button id="openPlanBuilder" style="background: linear-gradient(135deg, var(--primary) 0%, #9D4FFF 100%); color: var(--white); padding: 1.5rem 3.5rem; border: none; border-radius: 50px; font-size: 1.2rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; font-family: 'Museo Sans', sans-serif; box-shadow: 0 4px 20px rgba(108, 79, 255, 0.3);">
+                    🎯 Build My Partner Plan
+                </button>
+            </div>
+
+            <!-- Collapsible Form (hidden by default) -->
+            <div id="planBuilderForm" style="display: none; max-width: 900px; margin: 3rem auto 0; background: rgba(255,255,255,0.03); border-radius: 16px; padding: 3rem; border: 1px solid rgba(255,255,255,0.1); opacity: 0; transform: translateY(-20px); transition: all 0.5s ease;">
+                <form id="partnerPlanForm">
+                    <!-- Contact Information -->
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 2rem; font-weight: 700;">Your Information</h3>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; color: var(--white); font-weight: 600; margin-bottom: 0.5rem; font-size: 1rem;">Partner Agency Name *</label>
+                            <input type="text" id="agencyName" required style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--white); font-size: 1rem; font-family: 'Museo Sans', sans-serif;" placeholder="Your Agency Name">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div>
+                                <label style="display: block; color: var(--white); font-weight: 600; margin-bottom: 0.5rem; font-size: 1rem;">Contact Name *</label>
+                                <input type="text" id="contactName" required style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--white); font-size: 1rem; font-family: 'Museo Sans', sans-serif;" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label style="display: block; color: var(--white); font-weight: 600; margin-bottom: 0.5rem; font-size: 1rem;">Contact Email *</label>
+                                <input type="email" id="contactEmail" required style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--white); font-size: 1rem; font-family: 'Museo Sans', sans-serif;" placeholder="your@email.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Priority Selection -->
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">Select Your Priorities</h3>
+                        <p style="color: var(--gray); margin-bottom: 2rem; font-size: 1rem;">Choose the benefits most important to your agency and assign a priority level (1 = highest priority, 5 = lowest priority)</p>
+                        
+                        <div id="benefitsList" style="display: flex; flex-direction: column; gap: 1rem;">
+                            <!-- Enablement & Support Section -->
+                            <div style="margin-top: 2rem; margin-bottom: 1rem;">
+                                <h4 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; padding-bottom: 0.5rem; border-bottom: 2px solid var(--primary);">Enablement & Support</h4>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Technical Support">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">🛠️ Technical Support</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Partner Manager Meetings">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">👥 Partner Manager Meetings</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Communication Channels">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">💬 Communication Channels</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Training & Enablement">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">📚 Training & Enablement</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Strategic Merchant Success Manager">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">🎯 Strategic Merchant Success Manager</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Portfolio Health Reviews">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">📊 Portfolio Health Reviews</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <!-- Joint Go-to-Market Section -->
+                            <div style="margin-top: 2rem; margin-bottom: 1rem;">
+                                <h4 style="color: var(--secondary); font-size: 1.3rem; font-weight: 700; padding-bottom: 0.5rem; border-bottom: 2px solid var(--secondary);">Joint Go-to-Market</h4>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Client Audits">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">🔍 Client Audits</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Case Studies">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">📄 Case Studies</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Co-Marketing Investment (MDF)">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">💰 Co-Marketing Investment (MDF)</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Rebuy Events (Momentum Series)">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">🎪 Rebuy Events (Momentum Series)</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Digital Content">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">📱 Digital Content</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Agency Recommendations">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">⭐ Agency Recommendations</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Dedicated Account Executive">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">🤝 Dedicated Account Executive</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Account Mapping">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">🗺️ Account Mapping</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="benefit-option" data-benefit="Joint Prospecting">
+                                <label style="display: flex; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                                    <input type="checkbox" class="benefit-checkbox" style="width: 20px; height: 20px; margin-right: 1rem; cursor: pointer;">
+                                    <span style="flex: 1; color: var(--white); font-size: 1rem; font-weight: 500;">🚀 Joint Prospecting</span>
+                                    <select class="priority-select" disabled style="padding: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--white); font-size: 0.9rem; cursor: pointer; display: none;">
+                                        <option value="">Priority</option>
+                                        <option value="1">1 - Highest</option>
+                                        <option value="2">2 - High</option>
+                                        <option value="3">3 - Medium</option>
+                                        <option value="4">4 - Low</option>
+                                        <option value="5">5 - Lowest</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Optional Notes -->
+                    <div style="margin-bottom: 2rem;">
+                        <label style="display: block; color: var(--white); font-weight: 600; margin-bottom: 0.5rem; font-size: 1rem;">Additional Notes (Optional)</label>
+                        <textarea id="additionalNotes" rows="4" style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--white); font-size: 1rem; font-family: 'Museo Sans', sans-serif; resize: vertical;" placeholder="Tell us more about your goals, specific use cases, or any questions you have..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div style="text-align: center;">
+                        <button type="submit" style="background: linear-gradient(135deg, var(--primary) 0%, #9D4FFF 100%); color: var(--white); padding: 1.25rem 3rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; font-family: 'Museo Sans', sans-serif;">
+                            Submit My Priorities
+                        </button>
+                    </div>
+
+                    <!-- Success Message (hidden by default) -->
+                    <div id="successMessage" style="display: none; margin-top: 2rem; padding: 1.5rem; background: rgba(0, 201, 255, 0.1); border: 2px solid var(--secondary); border-radius: 12px; text-align: center;">
+                        <h3 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 0.5rem;">🎉 Thank You!</h3>
+                        <p style="color: var(--white); font-size: 1.1rem; margin: 0;">Your partner manager will reach out to you within 2-3 business days to discuss your priorities and create your customized success plan.</p>
+                    </div>
+
+                    <!-- Error Message (hidden by default) -->
+                    <div id="errorMessage" style="display: none; margin-top: 2rem; padding: 1.5rem; background: rgba(255, 0, 0, 0.1); border: 2px solid #ff4444; border-radius: 12px; text-align: center;">
+                        <h3 style="color: #ff4444; font-size: 1.5rem; margin-bottom: 0.5rem;">❌ Oops!</h3>
+                        <p style="color: var(--white); font-size: 1.1rem; margin: 0;">Please select at least one priority benefit before submitting.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Handle opening the plan builder form
+        document.getElementById('openPlanBuilder').addEventListener('click', function() {
+            const formContainer = document.getElementById('planBuilderForm');
+            const button = this;
+            
+            // Hide button with fade out
+            button.style.opacity = '0';
+            button.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                button.style.display = 'none';
+                
+                // Show form with slide-in animation
+                formContainer.style.display = 'block';
+                setTimeout(() => {
+                    formContainer.style.opacity = '1';
+                    formContainer.style.transform = 'translateY(0)';
+                }, 10);
+                
+                // Scroll to form
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        });
+
+        // Handle checkbox interactions and priority dropdowns
+        document.querySelectorAll('.benefit-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const parentOption = this.closest('.benefit-option');
+                const prioritySelect = parentOption.querySelector('.priority-select');
+                const label = parentOption.querySelector('label');
+                
+                if (this.checked) {
+                    prioritySelect.disabled = false;
+                    prioritySelect.style.display = 'block';
+                    prioritySelect.required = true;
+                    label.style.background = 'rgba(108, 79, 255, 0.15)';
+                    label.style.borderColor = 'var(--primary)';
+                } else {
+                    prioritySelect.disabled = true;
+                    prioritySelect.style.display = 'none';
+                    prioritySelect.required = false;
+                    prioritySelect.value = '';
+                    label.style.background = 'rgba(255,255,255,0.03)';
+                    label.style.borderColor = 'rgba(255,255,255,0.1)';
+                }
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('partnerPlanForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Hide any previous messages
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            // Collect form data
+            const agencyName = document.getElementById('agencyName').value;
+            const contactName = document.getElementById('contactName').value;
+            const contactEmail = document.getElementById('contactEmail').value;
+            const additionalNotes = document.getElementById('additionalNotes').value;
+            
+            // Collect selected benefits with priorities
+            const selectedBenefits = [];
+            document.querySelectorAll('.benefit-checkbox:checked').forEach(checkbox => {
+                const parentOption = checkbox.closest('.benefit-option');
+                const benefit = parentOption.dataset.benefit;
+                const priority = parentOption.querySelector('.priority-select').value;
+                
+                if (priority) {
+                    selectedBenefits.push({
+                        benefit: benefit,
+                        priority: priority
+                    });
+                }
+            });
+            
+            // Validation: Check if at least one benefit is selected
+            if (selectedBenefits.length === 0) {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('errorMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            // Sort benefits by priority
+            selectedBenefits.sort((a, b) => parseInt(a.priority) - parseInt(b.priority));
+            
+            // Format message for Slack
+            const priorityLabels = {
+                '1': 'Highest',
+                '2': 'High',
+                '3': 'Medium',
+                '4': 'Low',
+                '5': 'Lowest'
+            };
+            
+            let benefitsText = selectedBenefits.map(item => 
+                `• ${item.benefit} (Priority: ${priorityLabels[item.priority]})`
+            ).join('\n');
+            
+            const slackMessage = {
+                text: `🎯 New Partner Plan Submission`,
+                blocks: [
+                    {
+                        type: "header",
+                        text: {
+                            type: "plain_text",
+                            text: "🎯 New Partner Plan Submission"
+                        }
+                    },
+                    {
+                        type: "section",
+                        fields: [
+                            {
+                                type: "mrkdwn",
+                                text: `*Agency Name:*\n${agencyName}`
+                            },
+                            {
+                                type: "mrkdwn",
+                                text: `*Contact:*\n${contactName}`
+                            },
+                            {
+                                type: "mrkdwn",
+                                text: `*Email:*\n${contactEmail}`
+                            },
+                            {
+                                type: "mrkdwn",
+                                text: `*Date:*\n${new Date().toLocaleDateString()}`
+                            }
+                        ]
+                    },
+                    {
+                        type: "section",
+                        text: {
+                            type: "mrkdwn",
+                            text: `*Selected Priorities:*\n${benefitsText}`
+                        }
+                    }
+                ]
+            };
+            
+            // Add notes section if provided
+            if (additionalNotes) {
+                slackMessage.blocks.push({
+                    type: "section",
+                    text: {
+                        type: "mrkdwn",
+                        text: `*Additional Notes:*\n${additionalNotes}`
+                    }
+                });
+            }
+            
+            // Add action reminder
+            slackMessage.blocks.push({
+                type: "section",
+                text: {
+                    type: "mrkdwn",
+                    text: "⏰ *Action Required:* Partner Manager should reach out within 2-3 business days"
+                }
+            });
+            
+            try {
+                // TODO: Replace with actual Slack webhook URL
+                const SLACK_WEBHOOK_URL = 'YOUR_SLACK_WEBHOOK_URL_HERE';
+                
+                const response = await fetch(SLACK_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(slackMessage)
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    // Reset form
+                    this.reset();
+                    // Reset all checkboxes and priority selects
+                    document.querySelectorAll('.benefit-checkbox').forEach(cb => {
+                        cb.checked = false;
+                        const event = new Event('change');
+                        cb.dispatchEvent(event);
+                    });
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('There was an error submitting your priorities. Please try again or contact us directly at partners@rebuyengine.com');
+            }
+        });
+    </script>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Let's Grow Together</h2>
+            <p>Partner with Rebuy and unlock new revenue streams while delivering exceptional results for your clients</p>
+            <div class="cta-buttons">
+                <a href="mailto:partners@rebuyengine.com" class="btn btn-primary">Talk to Our Team</a>
+                <a href="https://www.rebuyengine.com/partners" class="btn btn-secondary">Become a Partner</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rebuy Engine. All rights reserved. | <a href="https://www.rebuyengine.com">rebuyengine.com</a> | <a href="/cdn-cgi/l/email-protection#eb9b8a999f858e9998ab998e899e928e858c
